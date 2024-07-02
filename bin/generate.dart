@@ -17,28 +17,27 @@ void main(List<String> arguments) {
     'event': 'event_template.mustache',
   };
 
-  // Find the directory of the current script
   final scriptDir = p.dirname(Platform.script.toFilePath());
 
   final templatesDir = p.join(scriptDir, '..', 'templates');
+
+  // Define the output directory path based on the class name
+  final outputDir = p.join(Directory.current.path, className.toLowerCase());
+
+  // Ensure the output directory exists, create if it doesn't
+  Directory(outputDir).createSync(recursive: true);
 
   templates.forEach((type, templateName) {
     final templatePath = p.join(templatesDir, templateName);
     final templateContent = File(templatePath).readAsStringSync();
     final template = Template(templateContent);
 
-    final currentDirectory = Directory.current.path;
-
-    final output = template.renderString({
-      'className': className,
-    });
+    final output = template.renderString({'className': className});
 
     final outputPath =
-        p.join(currentDirectory, '${className.toLowerCase()}_$type.dart');
+        p.join(outputDir, '${className.toLowerCase()}_$type.dart');
     File(outputPath).writeAsStringSync(output);
 
     print('Generated ${outputPath}');
   });
-
-  print("Step 3");
 }
