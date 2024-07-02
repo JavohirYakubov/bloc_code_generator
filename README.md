@@ -65,7 +65,7 @@ To generate files for a `Profile` Bloc:
 ```bash
 createBloc Profile
 ```
-To generate files for a `ProductModel`:
+To generate file for a `ProductModel`:
 ```bash
 createModel ProductModel
 ```
@@ -75,7 +75,9 @@ This will create the following files in the current directory:
 - `profile_bloc.dart`
 - `profile_page.dart`
 - `profile_event.dart`
+
 OR
+
 - `product_model.dart`
 
 ## License
