@@ -1,4 +1,4 @@
----
+
 # Bloc Code Generator
 
 A Dart script to generate Bloc code templates for your Flutter projects.
@@ -9,15 +9,47 @@ A Dart script to generate Bloc code templates for your Flutter projects.
 
 ## Usage
 
+### Setting up Short Command
+
+To create a shorter commands (`createBloc`) (`createModel`) for running the script:
+
+1. **Set up an alias**:
+   - Open your shell configuration file (`~/.bashrc` or `~/.zshrc`):
+   
+   ```bash
+   nano ~/.bashrc
+   # or
+   nano ~/.zshrc
+   ```
+
+   - Add the following alias to the end of the file:
+
+   ```bash
+   alias createBloc="dart /Users/javohiryakubov/Desktop/bloc_code_generator/bin/generate.dart"
+   alias createModel="dart /Users/javohiryakubov/Desktop/bloc_code_generator/bin/generate_json_model.dart"
+   ```
+
+   - Save the file (`Ctrl + O` in nano) and exit (`Ctrl + X` in nano).
+
+   - Apply the changes:
+
+   ```bash
+   source ~/.bashrc
+   # or
+   source ~/.zshrc
+   ```
+
+### Running the Script
+
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/JavohirYakubov/bloc_code_generator.git
    cd bloc_code_generator
    ```
 
-2. **Run the script**:
+2. **Run the script using the short command**:
    ```bash
-   dart bin/generate.dart BLOC_NAME
+   createBloc BLOC_NAME
    ```
 
    Replace `BLOC_NAME` with the desired name for your Bloc, such as `Profile`.
@@ -26,7 +58,7 @@ A Dart script to generate Bloc code templates for your Flutter projects.
 
 To generate files for a `Profile` Bloc:
 ```bash
-dart bin/generate.dart Profile
+createBloc Profile
 ```
 
 This will create the following files in the current directory:
@@ -36,3 +68,7 @@ This will create the following files in the current directory:
 - `profile_event.dart`
 
 ## License
+
+This project is licensed under the MIT License.
+
+---
