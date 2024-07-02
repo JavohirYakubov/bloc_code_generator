@@ -51,8 +51,13 @@ To create a shorter commands (`createBloc`) (`createModel`) for running the scri
    ```bash
    createBloc BLOC_NAME
    ```
+   OR
+   ```bash
+   createModel MODEL_NAME
+   ```
 
    Replace `BLOC_NAME` with the desired name for your Bloc, such as `Profile`.
+   Replace `MODEL_NAME` with the desired name for your model, such as `Product`.
 
 ## Example
 
@@ -60,15 +65,18 @@ To generate files for a `Profile` Bloc:
 ```bash
 createBloc Profile
 ```
+To generate files for a `ProductModel`:
+```bash
+createModel ProductModel
+```
 
 This will create the following files in the current directory:
 - `profile_state.dart`
 - `profile_bloc.dart`
 - `profile_page.dart`
 - `profile_event.dart`
+OR
+- `product_model.dart`
 
 ## License
-
-This project is licensed under the MIT License.
-
 ---
