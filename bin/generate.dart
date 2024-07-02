@@ -17,8 +17,13 @@ void main(List<String> arguments) {
     'event': 'event_template.mustache',
   };
 
+  // Find the directory of the current script
+  final scriptDir = p.dirname(Platform.script.toFilePath());
+
+  final templatesDir = p.join(scriptDir, '..', 'templates');
+
   templates.forEach((type, templateName) {
-    final templatePath = p.join('templates', templateName);
+    final templatePath = p.join(templatesDir, templateName);
     final templateContent = File(templatePath).readAsStringSync();
     final template = Template(templateContent);
 
